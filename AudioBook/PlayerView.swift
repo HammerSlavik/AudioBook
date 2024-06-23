@@ -7,9 +7,11 @@
 
 import SwiftUI
 import ComposableArchitecture
+import AVFoundation
 
 struct PlayerFeature: Reducer {
 	struct State: Equatable {
+		var player: AVPlayer?
 		var isPlaying = false
 	}
 	enum Action {
@@ -23,7 +25,22 @@ struct PlayerFeature: Reducer {
 		Reduce { state, action in
 			switch action {
 			case .togglePlayPauseTapped:
-				state.isPlaying.toggle()
+				if !state.isPlaying {
+					if state.player == nil {
+						guard let url = Bundle.main.url(forResource: "Chapter1", withExtension: "m4a") else {
+							return .none
+						}
+						state.player = AVPlayer(url: url)
+					}
+					state.player!.play()
+					state.isPlaying = true
+				} else {
+					guard state.player != nil else {
+						return .none
+					}
+					state.player!.pause()
+					state.isPlaying = false
+				}
 				return .none
 			case .endBackwardTapped:
 				return .none
