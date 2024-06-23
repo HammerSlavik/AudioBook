@@ -14,8 +14,8 @@ struct PlayerFeature: Reducer {
 	}
 	enum Action {
 		case togglePlayPauseTapped
-		case backwardTapped
-		case forwardTapped
+		case endBackwardTapped
+		case endForwardTapped
 		case seekBackwardTapped
 		case seekForwardTapped
 	}
@@ -25,9 +25,9 @@ struct PlayerFeature: Reducer {
 			case .togglePlayPauseTapped:
 				state.isPlaying.toggle()
 				return .none
-			case .backwardTapped:
+			case .endBackwardTapped:
 				return .none
-			case .forwardTapped:
+			case .endForwardTapped:
 				return .none
 			case .seekBackwardTapped:
 				return .none
@@ -68,7 +68,7 @@ struct PlayerView: View {
 			Spacer()
 			HStack {
 				Button {
-					viewStore.send(.backwardTapped)
+					viewStore.send(.endBackwardTapped)
 				} label: {
 					Image(systemName: "backward.end.fill")
 						.font(.system(size: 22))
@@ -97,7 +97,7 @@ struct PlayerView: View {
 				}
 				Spacer()
 				Button {
-					viewStore.send(.forwardTapped)
+					viewStore.send(.endForwardTapped)
 				} label: {
 					Image(systemName: "forward.end.fill")
 						.font(.system(size: 22))
