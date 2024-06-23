@@ -17,6 +17,12 @@
 		1BA6964C2C287A36003881A8 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA6964B2C287A36003881A8 /* PlayerView.swift */; };
 		1BA6964E2C287E28003881A8 /* ModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA6964D2C287E28003881A8 /* ModeView.swift */; };
 		1BA696502C28854C003881A8 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BA6964F2C28854C003881A8 /* Colors.xcassets */; };
+		1BA696572C28B66F003881A8 /* Chapter4.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 1BA696522C28B66F003881A8 /* Chapter4.m4a */; };
+		1BA696582C28B66F003881A8 /* Chapter5.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 1BA696532C28B66F003881A8 /* Chapter5.m4a */; };
+		1BA696592C28B66F003881A8 /* Chapter2.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 1BA696542C28B66F003881A8 /* Chapter2.m4a */; };
+		1BA6965A2C28B66F003881A8 /* Chapter3.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 1BA696552C28B66F003881A8 /* Chapter3.m4a */; };
+		1BA6965B2C28B66F003881A8 /* Chapter1.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 1BA696562C28B66F003881A8 /* Chapter1.m4a */; };
+		1BA6965E2C28BA8E003881A8 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 1BA6965D2C28BA8E003881A8 /* ComposableArchitecture */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +56,11 @@
 		1BA6964B2C287A36003881A8 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		1BA6964D2C287E28003881A8 /* ModeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeView.swift; sourceTree = "<group>"; };
 		1BA6964F2C28854C003881A8 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		1BA696522C28B66F003881A8 /* Chapter4.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = Chapter4.m4a; sourceTree = "<group>"; };
+		1BA696532C28B66F003881A8 /* Chapter5.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = Chapter5.m4a; sourceTree = "<group>"; };
+		1BA696542C28B66F003881A8 /* Chapter2.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = Chapter2.m4a; sourceTree = "<group>"; };
+		1BA696552C28B66F003881A8 /* Chapter3.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = Chapter3.m4a; sourceTree = "<group>"; };
+		1BA696562C28B66F003881A8 /* Chapter1.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = Chapter1.m4a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1BA6965E2C28BA8E003881A8 /* ComposableArchitecture in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,6 +118,7 @@
 				1BA6964D2C287E28003881A8 /* ModeView.swift */,
 				1BA696252C2870BA003881A8 /* Assets.xcassets */,
 				1BA6964F2C28854C003881A8 /* Colors.xcassets */,
+				1BA696512C28B66F003881A8 /* Resources */,
 				1BA696272C2870BA003881A8 /* Preview Content */,
 			);
 			path = AudioBook;
@@ -136,6 +149,18 @@
 			path = AudioBookUITests;
 			sourceTree = "<group>";
 		};
+		1BA696512C28B66F003881A8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1BA696562C28B66F003881A8 /* Chapter1.m4a */,
+				1BA696542C28B66F003881A8 /* Chapter2.m4a */,
+				1BA696552C28B66F003881A8 /* Chapter3.m4a */,
+				1BA696522C28B66F003881A8 /* Chapter4.m4a */,
+				1BA696532C28B66F003881A8 /* Chapter5.m4a */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -152,6 +177,9 @@
 			dependencies = (
 			);
 			name = AudioBook;
+			packageProductDependencies = (
+				1BA6965D2C28BA8E003881A8 /* ComposableArchitecture */,
+			);
 			productName = AudioBook;
 			productReference = 1BA6961E2C2870B8003881A8 /* AudioBook.app */;
 			productType = "com.apple.product-type.application";
@@ -224,6 +252,9 @@
 				Base,
 			);
 			mainGroup = 1BA696152C2870B7003881A8;
+			packageReferences = (
+				1BA6965C2C28BA8E003881A8 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+			);
 			productRefGroup = 1BA6961F2C2870B8003881A8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -241,8 +272,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				1BA696502C28854C003881A8 /* Colors.xcassets in Resources */,
+				1BA696582C28B66F003881A8 /* Chapter5.m4a in Resources */,
 				1BA696292C2870BA003881A8 /* Preview Assets.xcassets in Resources */,
 				1BA696262C2870BA003881A8 /* Assets.xcassets in Resources */,
+				1BA6965B2C28B66F003881A8 /* Chapter1.m4a in Resources */,
+				1BA696572C28B66F003881A8 /* Chapter4.m4a in Resources */,
+				1BA6965A2C28B66F003881A8 /* Chapter3.m4a in Resources */,
+				1BA696592C28B66F003881A8 /* Chapter2.m4a in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -600,6 +636,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1BA6965C2C28BA8E003881A8 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.11.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1BA6965D2C28BA8E003881A8 /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1BA6965C2C28BA8E003881A8 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1BA696162C2870B7003881A8 /* Project object */;
 }

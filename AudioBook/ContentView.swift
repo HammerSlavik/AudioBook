@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
 struct ContentView: View {
     var body: some View {
@@ -32,7 +33,9 @@ struct ContentView: View {
 				.padding(.horizontal, 10)
 			Spacer()
 				.frame(height: 20)
-			PlayerView()
+			PlayerView(store: Store(initialState: PlayerFeature.State()) {
+				PlayerFeature()
+			})
 				.frame(maxHeight: .infinity)
 			ModeView()
         }

@@ -6,75 +6,114 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
+
+struct PlayerFeature: Reducer {
+	struct State: Equatable {
+		var isPlaying = false
+	}
+	enum Action {
+		case togglePlayPauseTapped
+		case backwardTapped
+		case forwardTapped
+		case seekBackwardTapped
+		case seekForwardTapped
+	}
+	var body: some ReducerOf<Self> {
+		Reduce { state, action in
+			switch action {
+			case .togglePlayPauseTapped:
+				state.isPlaying.toggle()
+				return .none
+			case .backwardTapped:
+				return .none
+			case .forwardTapped:
+				return .none
+			case .seekBackwardTapped:
+				return .none
+			case .seekForwardTapped:
+				return .none
+			}
+		}
+	}
+}
 
 struct PlayerView: View {
+	let store: StoreOf<PlayerFeature>
+	
 	@State private var progress = 0.3
     var body: some View {
-		HStack(spacing: 5) {
-			Text("00:28")
-				.frame(width: 40, alignment: .leading)
-			Slider(value: $progress, in: 0...1)
-			Text("02:12")
-				.frame(width: 40, alignment: .trailing)
+		WithViewStore(self.store, observe: { $0 }) { viewStore in
+			HStack(spacing: 5) {
+				Text("00:28")
+					.frame(width: 40, alignment: .leading)
+				Slider(value: $progress, in: 0...1)
+				Text("02:12")
+					.frame(width: 40, alignment: .trailing)
+			}
+			.font(.footnote)
+			.foregroundStyle(.gray)
+			Button {
+				
+			} label: {
+				Text("Speed x1")
+					.frame(height: 32)
+					.font(.footnote)
+					.fontWeight(.medium)
+					.padding(.horizontal, 10)
+					.background(Color(white: 0.8).opacity(0.4))
+					.foregroundStyle(.black)
+					.clipShape(.rect(cornerRadius: 6))
+			}
+			Spacer()
+			HStack {
+				Button {
+					viewStore.send(.backwardTapped)
+				} label: {
+					Image(systemName: "backward.end.fill")
+						.font(.system(size: 22))
+				}
+				Spacer()
+				Button {
+					viewStore.send(.seekBackwardTapped)
+				} label: {
+					Image(systemName: "gobackward.5")
+						.font(.system(size: 28))
+				}
+				Spacer()
+				Button {
+					viewStore.send(.togglePlayPauseTapped)
+				} label: {
+					Image(systemName: viewStore.isPlaying ? "pause.fill" : "play.fill")
+						.font(.system(size: 42))
+						.frame(width: 38)
+				}
+				Spacer()
+				Button {
+					viewStore.send(.seekForwardTapped)
+				} label: {
+					Image(systemName: "goforward.10")
+						.font(.system(size: 28))
+				}
+				Spacer()
+				Button {
+					viewStore.send(.forwardTapped)
+				} label: {
+					Image(systemName: "forward.end.fill")
+						.font(.system(size: 22))
+				}
+			}
+			.frame(maxWidth: .infinity)
+			.padding(.horizontal, 36)
+			.foregroundStyle(.black)
+			Spacer()
 		}
-		.font(.footnote)
-		.foregroundStyle(.gray)
-		Button {
-			
-		} label: {
-			Text("Speed x1")
-				.frame(height: 32)
-				.font(.footnote)
-				.fontWeight(.medium)
-				.padding(.horizontal, 10)
-				.background(Color(white: 0.8).opacity(0.4))
-				.foregroundStyle(.black)
-				.clipShape(.rect(cornerRadius: 6))
-		}
-		Spacer()
-		HStack {
-			Button {
-				
-			} label: {
-				Image(systemName: "backward.end.fill")
-					.font(.system(size: 22))
-			}
-			Spacer()
-			Button {
-				
-			} label: {
-				Image(systemName: "gobackward.5")
-					.font(.system(size: 28))
-			}
-			Spacer()
-			Button {
-				
-			} label: {
-				Image(systemName: "pause.fill")
-					.font(.system(size: 42))
-			}
-			Spacer()
-			Button {
-				
-			} label: {
-				Image(systemName: "goforward.10")
-					.font(.system(size: 28))
-			}
-			Spacer()
-			Button {
-				
-			} label: {
-				Image(systemName: "forward.end.fill")
-					.font(.system(size: 22))
-			}
-		}
-		.frame(maxWidth: .infinity)
-		.padding(.horizontal, 36)
-		.foregroundStyle(.black)
-		Spacer()
     }
 }
 
 #Preview {
-    PlayerView()
+	PlayerView(store: Store(initialState: PlayerFeature.State()) {
+		PlayerFeature()
+			._printChanges()
+	})
 }
