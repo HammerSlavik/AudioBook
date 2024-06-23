@@ -13,6 +13,7 @@ struct ContentView: View {
             Image("BookBG")
 				.resizable()
 				.aspectRatio(contentMode: .fit)
+				.clipShape(.rect(cornerRadius: 8))
 				.padding(20)
 				.containerRelativeFrame(.vertical, { height, _ in height * 0.5 })
 			Spacer()
