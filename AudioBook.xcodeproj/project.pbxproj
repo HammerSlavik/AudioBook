@@ -14,6 +14,9 @@
 		1BA696332C2870BA003881A8 /* AudioBookTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA696322C2870BA003881A8 /* AudioBookTests.swift */; };
 		1BA6963D2C2870BA003881A8 /* AudioBookUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA6963C2C2870BA003881A8 /* AudioBookUITests.swift */; };
 		1BA6963F2C2870BA003881A8 /* AudioBookUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA6963E2C2870BA003881A8 /* AudioBookUITestsLaunchTests.swift */; };
+		1BA6964C2C287A36003881A8 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA6964B2C287A36003881A8 /* PlayerView.swift */; };
+		1BA6964E2C287E28003881A8 /* ModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA6964D2C287E28003881A8 /* ModeView.swift */; };
+		1BA696502C28854C003881A8 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BA6964F2C28854C003881A8 /* Colors.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +47,9 @@
 		1BA696382C2870BA003881A8 /* AudioBookUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AudioBookUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BA6963C2C2870BA003881A8 /* AudioBookUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioBookUITests.swift; sourceTree = "<group>"; };
 		1BA6963E2C2870BA003881A8 /* AudioBookUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioBookUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		1BA6964B2C287A36003881A8 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
+		1BA6964D2C287E28003881A8 /* ModeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeView.swift; sourceTree = "<group>"; };
+		1BA6964F2C28854C003881A8 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,7 +102,10 @@
 			children = (
 				1BA696212C2870B8003881A8 /* AudioBookApp.swift */,
 				1BA696232C2870B8003881A8 /* ContentView.swift */,
+				1BA6964B2C287A36003881A8 /* PlayerView.swift */,
+				1BA6964D2C287E28003881A8 /* ModeView.swift */,
 				1BA696252C2870BA003881A8 /* Assets.xcassets */,
+				1BA6964F2C28854C003881A8 /* Colors.xcassets */,
 				1BA696272C2870BA003881A8 /* Preview Content */,
 			);
 			path = AudioBook;
@@ -231,6 +240,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1BA696502C28854C003881A8 /* Colors.xcassets in Resources */,
 				1BA696292C2870BA003881A8 /* Preview Assets.xcassets in Resources */,
 				1BA696262C2870BA003881A8 /* Assets.xcassets in Resources */,
 			);
@@ -257,6 +267,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1BA6964C2C287A36003881A8 /* PlayerView.swift in Sources */,
+				1BA6964E2C287E28003881A8 /* ModeView.swift in Sources */,
 				1BA696242C2870B8003881A8 /* ContentView.swift in Sources */,
 				1BA696222C2870B8003881A8 /* AudioBookApp.swift in Sources */,
 			);
