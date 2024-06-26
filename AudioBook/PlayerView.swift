@@ -8,8 +8,27 @@
 import SwiftUI
 import ComposableArchitecture
 import AVFoundation
+import Combine
 
 var player: AVPlayer?
+
+class PlaybackDelegate {
+	var cancellable: AnyCancellable?
+	
+	func playbackFinished() async {
+		_ = await AsyncStream<Bool> { continuation in
+			cancellable = NotificationCenter.default.publisher(for: NSNotification.Name.AVPlayerItemDidPlayToEndTime).sink { notification in
+				continuation.yield(true)
+				continuation.finish()
+			}
+		}
+		.first(where: { _ in true})
+	}
+	
+	deinit {
+		cancellable?.cancel()
+	}
+}
 
 struct PlayerFeature: Reducer {
 	struct State: Equatable {
@@ -33,6 +52,7 @@ struct PlayerFeature: Reducer {
 		case chapterUpdated(Int)
 		case progressUpdated(Double)
 		case sliderUpdated(Double)
+		case playbackFinished(Result<Void, Error>)
 	}
 	
 	@Dependency(\.continuousClock) var clock
@@ -58,9 +78,15 @@ struct PlayerFeature: Reducer {
 				state.isPlaying = true
 				state.duration = player!.duration
 				return .run { send in
+					async let playbackObserving: Void = send(
+						.playbackFinished(
+							Result { await PlaybackDelegate().playbackFinished() }
+						)
+					)
 					for await _ in self.clock.timer(interval: .milliseconds(500)) {
 						await send(.progressUpdated(player!.currentTime))
 					}
+					await playbackObserving
 				}
 				.cancellable(id: CancelID.play, cancelInFlight: true)
 			case .pause:
@@ -121,6 +147,13 @@ struct PlayerFeature: Reducer {
 				state.progress = progress
 				player!.seek(to: progress)
 				return .none
+			case .playbackFinished:
+				if state.chapterIndex + 1 <= state.book.chapters.count-1 {
+					return .send(.nextTapped)
+				}
+				return .concatenate(
+					.send(.pause),
+					.send(.sliderUpdated(0)))
 			}
 		}
 	}
@@ -142,7 +175,6 @@ extension AVPlayer {
 		return newTime
 	}
 }
-
 
 
 struct PlayerView: View {

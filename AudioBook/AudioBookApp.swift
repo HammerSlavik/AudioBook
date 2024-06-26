@@ -14,7 +14,7 @@ struct AudioBookApp: App {
         WindowGroup {
             ContentView(store: Store(initialState: PlayerFeature.State(book: BookProvider().dummyBook())) {
 				PlayerFeature()
-			  ._printChanges()
+//			  ._printChanges()
 			})
         }
     }
