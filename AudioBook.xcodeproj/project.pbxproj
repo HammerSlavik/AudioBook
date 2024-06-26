@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1B411E652C2B7FCA00C5E052 /* BookProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B411E642C2B7FCA00C5E052 /* BookProvider.swift */; };
+		1B411E672C2CAD9100C5E052 /* PlaybackDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B411E662C2CAD9100C5E052 /* PlaybackDelegate.swift */; };
 		1BA696222C2870B8003881A8 /* AudioBookApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA696212C2870B8003881A8 /* AudioBookApp.swift */; };
 		1BA696242C2870B8003881A8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA696232C2870B8003881A8 /* ContentView.swift */; };
 		1BA696262C2870BA003881A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BA696252C2870BA003881A8 /* Assets.xcassets */; };
@@ -45,6 +46,7 @@
 
 /* Begin PBXFileReference section */
 		1B411E642C2B7FCA00C5E052 /* BookProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookProvider.swift; sourceTree = "<group>"; };
+		1B411E662C2CAD9100C5E052 /* PlaybackDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackDelegate.swift; sourceTree = "<group>"; };
 		1BA6961E2C2870B8003881A8 /* AudioBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudioBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BA696212C2870B8003881A8 /* AudioBookApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioBookApp.swift; sourceTree = "<group>"; };
 		1BA696232C2870B8003881A8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 				1BA696212C2870B8003881A8 /* AudioBookApp.swift */,
 				1BA696232C2870B8003881A8 /* ContentView.swift */,
 				1BA6964B2C287A36003881A8 /* PlayerView.swift */,
+				1B411E662C2CAD9100C5E052 /* PlaybackDelegate.swift */,
 				1BA6964D2C287E28003881A8 /* ModeView.swift */,
 				1B411E642C2B7FCA00C5E052 /* BookProvider.swift */,
 				1BA696252C2870BA003881A8 /* Assets.xcassets */,
@@ -309,6 +312,7 @@
 				1BA6964C2C287A36003881A8 /* PlayerView.swift in Sources */,
 				1BA6964E2C287E28003881A8 /* ModeView.swift in Sources */,
 				1B411E652C2B7FCA00C5E052 /* BookProvider.swift in Sources */,
+				1B411E672C2CAD9100C5E052 /* PlaybackDelegate.swift in Sources */,
 				1BA696242C2870B8003881A8 /* ContentView.swift in Sources */,
 				1BA696222C2870B8003881A8 /* AudioBookApp.swift in Sources */,
 			);
